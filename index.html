@@ -11,62 +11,19 @@
         }
 
         #wrapper {
-            min-height: 100%;
             min-width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
     </style>
-    <script>
-        let x = 350;
-        let y = 350;
-        let speed = 30;
-        function draw(){
-            const canvas = document.getElementById("play-area");
-            const ctx = canvas.getContext('2d');
-            ctx.strokeStyle = '#000';
-            ctx.fillStyle = '#000';
-            ctx.beginPath();
-            ctx.arc(x, y, 40, 0, 2 * Math.PI);
-            ctx.fill();
-        }
-
-        function hide(){
-            const canvas = document.getElementById("play-area");
-            const ctx = canvas.getContext('2d');
-            ctx.strokeStyle = '#fff';
-            ctx.fillStyle = '#fff';
-            ctx.beginPath();
-            ctx.arc(x, y, 41, 0, 2 * Math.PI);
-            ctx.fill();
-        }
-
-        window.addEventListener("DOMContentLoaded", () => {
-            draw();
-            window.addEventListener('keydown', (e) => {
-                hide();
-                if (e.key === 'ArrowUp') {
-                    y -= speed;
-                }
-                if (e.key === 'ArrowDown') {
-                    y += speed;
-                }
-                if (e.key === 'ArrowLeft') {
-                    x -= speed;
-                }
-                if (e.key === 'ArrowRight') {
-                    x += speed;
-                }
-                draw();
-            });
-        });
+    <script type="module" src="usingCanvas.js">
     </script>
 </head>
 <body>
-<div id="wrapper">
-    <canvas id="play-area" width="750" height="750" style="border: 1px red solid"></canvas>
-</div>
-
+    <div style="display: flex; margin: 2rem">
+        <button id="start-canvas">Start canvas</button>
+    </div>
+    <div id="wrapper"></div>
 </body>
 </html>
